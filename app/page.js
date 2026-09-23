@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Home() {
+function Page() {
   return (
    <main>
     <h1>CPRG306: Web Development 2 - Assignments</h1>
@@ -9,3 +9,5 @@ export default function Home() {
    </main>
   );
 }
+
+export default Page
