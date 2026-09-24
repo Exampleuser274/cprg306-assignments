@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ItemList from "./item-list";
 
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-slate-950 px-5 py-12 text-slate-100 sm:px-8">
