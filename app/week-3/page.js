@@ -1,4 +1,4 @@
-import Item from "./item.js";
+import Link from "next/link";
 import ItemList from "./item-list";
 
 export default function Page() {
