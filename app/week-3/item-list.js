@@ -1,4 +1,5 @@
-import Item from "./item";
+import React from "react";
+import Item from "./items";
 export default function itemList()
 {
 const item1 = {
@@ -88,5 +89,5 @@ return(
         <Item name={item11.name} quantity={item11.quantity} category={item11.category}></Item>
         <Item name={item12.name} quantity={item12.quantity} category={item12.category}></Item>
     </ul>
-)
+);
 }
