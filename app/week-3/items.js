@@ -1,4 +1,4 @@
-let item = function(name, quantity, category)
+export default function item(name, quantity, category)
 {
     return [name, quantity, category]
-};
+}
