@@ -15,7 +15,7 @@ export default function Page() {
       <h1 className="mt-3 text-4xl font-bold tracking-tight">Shopping List</h1>
       <p className="mt-4 mb-8 text-slate-600">Start your next item by choosing how many you need.</p>
       
-      // Call for the new item function
+      {/* Call for NewItem function */}
       <NewItem />
     </main>
   );
