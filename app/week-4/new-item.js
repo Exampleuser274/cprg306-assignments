@@ -15,6 +15,15 @@ export default function NewItem(){
         });
     }
 
+    function decrement(){
+        setQuantity((currentQuantity) => {
+            if (currentQuantity > 1){
+                return currentQuantity - 1;
+            }
+            return currentQuantity;
+        });
+    }
+
 
     // Delete this hello world when done
     return(
