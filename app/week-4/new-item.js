@@ -12,7 +12,8 @@ function increment()
     setQuantity((localQuantity) =>
         { 
             if(localQuantity < 20){return localQuantity + 1}
-            else {return localQuantity}
+            else if (localQuantity = 20){return localQuantity}
+            else {return localQuantity = 20}
         });
 }
 function decrement()
@@ -20,6 +21,7 @@ function decrement()
     setQuantity((localQuantity) =>
         { 
             if(localQuantity > 1){return localQuantity - 1}
-            else {return localQuantity}
+            else if(localQuantity = 1){return localQuantity}
+            else {return localQuantity = 1}
         });
 }
