@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 function Page() {
-  const weeks =[2,3,4,5];
+  const weeks =[2,3,4,5,6];
 
   return (
     <main>
