@@ -30,8 +30,18 @@ else
   }
 
   return (
+    <div>
+      <div className="flex flex-wrap gap-5 mb-4">
+        <button type="button" onClick={setSortName} className={`px-4 py-2 rounded-lg font-bold ${sortBy === "name" ? "bg-red-950 text-gray"  : "bg-gray-200 text-black"}`}>
+          Sort by Name
+        </button>
+
+        <button type="button" onClick={setSortCat} className={`px-4 py-2 rounded-lg font-bold ${sortBy === "category" ? "bg-red-950 text-gray" : "bg-gray-200 text-black"}`}>
+          Sort by Category
+        </button>
+      </div>
     <ul>
-      {items.map((item, index) => (
+      {sortedItems.map((item, index) => (
         <Item
           key={index}
           name={item.name}
@@ -40,5 +50,6 @@ else
         />
       ))}
     </ul>
+  </div>
   );
 }
