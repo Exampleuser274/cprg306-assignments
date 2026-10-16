@@ -41,9 +41,9 @@ else
         </button>
       </div>
     <ul>
-      {sortedItems.map((item, index) => (
+      {sortedItems.map((item) => (
         <Item
-          key={index}
+          key={item.id}
           name={item.name}
           quantity={item.quantity}
           category={item.category}
