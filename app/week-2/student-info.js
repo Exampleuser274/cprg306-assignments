@@ -1,7 +1,7 @@
 import Link from 'next/link'
 export default  function StudentInfo() {
     return(
-        <main>
+        <main className="text-gray-400">
             <h2>Student Info</h2>
             <p>Name: Ryan MacNeil</p>
             <p>

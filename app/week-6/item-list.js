@@ -36,7 +36,7 @@ function ItemList() {
          
 return (
         <div>
-            <div className="flex items center justify-center gap-2 mb-7">
+            <div className="flex items-center justify-center gap-2 mb-7">
                 <button 
                     onClick={() => setSortBy("name")}
                     className= {`flex flex-col rounded-xl p-4 ${sortBy === "name" ? "bg-active: bg-white" : "bg-inactive: bg-gray-400"}`}

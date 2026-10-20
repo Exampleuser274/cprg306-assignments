@@ -7,7 +7,7 @@ import { useState } from "react";
 function NewItem () {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
-    const [category, setCategory] = useState("Produce");
+    const [category, setCategory] = useState("produce");
     
     const increment = () => {
       if (quantity < 20) {
@@ -29,7 +29,7 @@ function NewItem () {
         alert(`\nItem Added: ${name}\nQuantity: ${quantity}\nCategory: ${category}`);
         setName("");
         setQuantity(1);
-        setCategory("Produce");
+        setCategory("produce");
     }
 
    return (
