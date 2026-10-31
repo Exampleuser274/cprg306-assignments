@@ -1,13 +1,15 @@
-import React from "react";
 import ItemList from "./item-list";
 
-function Page() {
+export default function Page() {
   return (
-    <main className="p-6 bg-green-800 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-6 text-white">Shopping List</h1>
-      <ItemList />
+    <main className="min-h-screen bg-slate-100 p-8">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-blue-900">
+          Shopping List
+        </h1>
+
+        <ItemList />
+      </div>
     </main>
   );
-};
-
-export default Page;
+}
