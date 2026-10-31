@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 function Page() {
-  const weeks =[2,3,4,5,6,7];
+  const weeks =[2,3,4,5,6,7,8];
 
   return (
     <main className="bg-green-800 min-h-screen">
