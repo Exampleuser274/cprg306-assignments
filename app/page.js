@@ -31,5 +31,3 @@ export default function Home() {
     </main>
   );
 }
-
-export default Page;
