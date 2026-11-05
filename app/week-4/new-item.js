@@ -2,48 +2,50 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
-  const [quantity, setQuantity] = useState(1);
+function NewItem () {
+    const [quantity, setQuantity] = useState(1);
+    
+    const increment = () => {
+      if (quantity < 20) {
+        setQuantity(quantity + 1);
+      };
+    };
 
-  function increment() {
-    if (quantity < 20) {
-      setQuantity(quantity + 1);
-    }
-  }
-
-  function decrement() {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  }
+    const decrement = () => {
+      if(quantity > 1) {
+        setQuantity(quantity - 1);
+      }
+      else setQuantity(quantity);
+    };
+    
 
   return (
-    <div className="p-4 bg-white rounded max-w-lg">
-      <h2 className="text-2xl font-bold mb-4 text-black text-center">
-        Quantity
-      </h2>
-
-      <div className="flex justify-center">
-        <button
-          onClick={decrement}
-          disabled={quantity === 1}
-          className="bg-gray-500 text-white font-bold py-2 px-4 rounded"
+    
+    <div className="flex items-center justify-center space-x-3 m-4 bg-white p-2 rounded-lg w-fit mx-auto ">
+        
+      <p className=" flex items-center justify-center w-10 h-10 text-xl font-bold text-gray-800 border border-gray-800 rounded-xl ">
+      {quantity}
+      </p>
+        
+      <button
+        onClick={decrement}
+        disabled={quantity === 1}
+        className="w-10 h-10 bg-green-800 text-gray-200 font-semibold rounded-md transition-colors duration-200 hover:bg-green-800 focus:outline-none disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
         >
-          -
-        </button>
+        -
+      </button>
 
-        <p className="text-xl font-bold text-black px-4">
-          {quantity}
-        </p>
-
-        <button
-          onClick={increment}
-          disabled={quantity === 20}
-          className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
+      <button
+        onClick={increment}
+        disabled={quantity === 20}
+        className="w-10 h-10 bg-green-800 text-gray-200 font-semibold rounded-md transition-colors duration-200 hover:bg-green-800 focus:outline-none disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
         >
-          +
-        </button>
-      </div>
-    </div>
+        +
+      </button>
+
+    </div> 
   );
-}
+};
+
+
+export default NewItem
