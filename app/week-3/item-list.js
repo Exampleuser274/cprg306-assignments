@@ -67,12 +67,7 @@ export default function ItemList() {
   return (
     <ul>
       {items.map((item, index) => (
-        <Item
-          key={index}
-          name={item.name}
-          quantity={item.quantity}
-          category={item.category}
-        />
+        <Item key={index} item={item} />
       ))}
     </ul>
   );
