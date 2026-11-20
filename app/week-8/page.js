@@ -6,7 +6,7 @@ import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
 import initialItems from './items.json'; 
 
-function Page() {
+export default function Page() {
   const [items, setItems] = useState(initialItems);
   const [selectedItemName, setSelectedItemName] = useState("");
 
