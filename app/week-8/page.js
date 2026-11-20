@@ -1,61 +1,43 @@
 "use client";
 
-import { useState } from "react";
-import NewItem from "./new-item";
+import React, { useState } from 'react';
 import ItemList from "./item-list";
+import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
-import itemsData from "./items.json";
+import initialItems from './items.json'; 
 
-export default function Page() {
-  // Keep shared state in Page so both the form and the list can use it.
-  const [items, setItems] = useState(itemsData);
+function Page() {
+  const [items, setItems] = useState(initialItems);
   const [selectedItemName, setSelectedItemName] = useState("");
 
-  // Add a new item without changing the original items array.
-  const handleAddItem = (item) => {
-    setItems((previousItems) => [...previousItems, item]);
+  const handleAddItem = (newItem) => {
+    setItems((prevItems) => [...prevItems, newItem]);
   };
 
-  // Clean the clicked item name before sending it to TheMealDB API.
   const handleItemSelect = (item) => {
-    const cleanedName = item.name
-      .split(",")[0]
-      .replace(/[\p{Extended_Pictographic}\uFE0F]/gu, "")
-      .trim()
-      .toLowerCase();
-
-    // Some shopping list names are plural, but the API uses singular names.
-    const ingredientNames = {
-      eggs: "egg",
-      bananas: "banana",
-      "chicken breasts": "chicken breast",
-    };
-
-    setSelectedItemName(ingredientNames[cleanedName] || cleanedName);
+    
+    let cleanedName = item.name.split(',')[0];
+      cleanedName = cleanedName.replace(/\p{Emoji_Presentation}|\p{Extended_Pictographic}/gu, '');
+      cleanedName = cleanedName.trim();
+    
+    setSelectedItemName(cleanedName);
   };
 
   return (
-    <main className="min-h-screen bg-slate-100 p-8">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-3 text-blue-900">
-          Shopping List
-        </h1>
-        <p className="text-gray-700 mb-6">
-          Click a shopping list item to find meals you can make with it.
-        </p>
-
-        {/* Keep the shopping list on the left and meal ideas on the right. */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/2">
-            <NewItem onAddItem={handleAddItem} />
-            <ItemList items={items} onItemSelect={handleItemSelect} />
-          </div>
-
-          <div className="w-full lg:w-1/2">
-            <MealIdeas ingredient={selectedItemName} />
-          </div>
+    <main className="p-6 bg-green-800 min-h-screen">
+      
+      <div className="flex max-w-6xl gap-30 mx-auto">
+        <div className="flex-1 mr-10">
+          <h1 className="text-4xl font-bold text-center mt-4 mb-6 text-white">Shopping List</h1>
+          <NewItem onAddItem={handleAddItem} />
+          <ItemList items={items} onItemSelect={handleItemSelect}/>
+        </div>
+        <div className="flex-1">
+          <MealIdeas ingredient={selectedItemName} />
         </div>
       </div>
     </main>
   );
 }
+
+export default Page;
