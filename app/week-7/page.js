@@ -1,26 +1,32 @@
 "use client";
 
-import React, { useState } from 'react';
-import ItemList from "./item-list";
+import { useState } from "react";
 import NewItem from "./new-item";
-import initialItems from './items.json'; 
+import ItemList from "./item-list";
+import itemsData from "./items.json";
 
-function Page() {
-  const [items, setItems] = useState(initialItems);
+export default function Page() {
+  // Keep the shopping list state here so both child components can use it.
+  const [items, setItems] = useState(itemsData);
 
-  const handleAddItem = (newItem) => {
-    setItems((prevItems) => [...prevItems, newItem]);
+  // Add the new item by making a new array instead of changing the old state.
+  const handleAddItem = (item) => {
+    setItems((previousItems) => [...previousItems, item]);
   };
 
   return (
-    <main className="p-6 bg-green-800 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-6 text-white">Shopping List</h1>
-      <div>
+    <main className="min-h-screen bg-slate-100 p-8">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-blue-900">
+          Shopping List
+        </h1>
+
+        {/* The form sends new items up to Page through onAddItem. */}
         <NewItem onAddItem={handleAddItem} />
+
+        {/* The list receives the current items through props. */}
         <ItemList items={items} />
       </div>
     </main>
   );
 }
-
-export default Page;
